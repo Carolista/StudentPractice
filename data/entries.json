@@ -1,0 +1,21 @@
+[
+    {
+        "title": "",
+        "section": "",
+        "category": "",
+        "type": "",
+        "description": "",
+        "links": [
+            { "linkType": "document", "name": "", "link": "" },
+            { "linkType": "repository", "name": "", "link": "" },
+            { "linkType": "starter code", "name": "", "link": "" },
+            { "linkType": "solution", "name": "", "link": "" },
+            { "linkType": "examples", "name": "", "link": "" },
+            { "linkType": "video", "name": "", "link": "" }
+        ],
+        "info": "",
+        "releaseDate": "",
+        "difficulty": "",
+        "image": ""       
+    }
+]
