@@ -20,8 +20,8 @@ export const entries = [
     // EXAMPLES & EXERCISES - REPLIT BASED
     {
         title: "Can I Get Some Input?",
-        section: "Examples &amp; Exercises by Topic",
-        category: "Data &amp; Variables",
+        section: "Examples & Exercises by Topic",
+        category: "Data & Variables",
         description: "Import readline-sync & get user input.",
         links: [
             { linkType: "Starter Code", name: "Start Coding", link: "https://repl.it/@CarolineRose/GettingInput-StarterCode" },
@@ -37,8 +37,8 @@ export const entries = [
     },
     {
         title: "Template Literals",
-        section: "Examples &amp; Exercises by Topic",
-        category: "Strings &amp; Arrays",
+        section: "Examples & Exercises by Topic",
+        category: "Strings & Arrays",
         description: "The most natural way to integrate strings and variables, using back ticks and a special placeholder syntax.",
         links: [
             { linkType: "Examples", name: "View Examples", link: "https://repl.it/@CarolineRose/Literally" }
@@ -54,8 +54,8 @@ export const entries = [
     // EXAMPLES & EXERCISES - GITHUB BASED
     {
         title: "Form Basics: Weekly Planner",
-        section: "Examples &amp; Exercises by Topic",
-        category: "",
+        section: "Examples & Exercises by Topic",
+        category: "The DOM",
         description: "Form validation and adding HTML to a page in the DOM",
         links: [
             { linkType: "Repository", name: "GitHub", link: "https://github.com/Carolista/LC-Form-Basics" },
