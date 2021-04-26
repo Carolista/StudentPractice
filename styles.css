@@ -15,7 +15,7 @@ main {
 }
 
 h3 {
-    color: #124b87;
+    color: #125e87;
     margin: 0px;
 }
 
@@ -26,7 +26,7 @@ h4 {
 button {
     color: white;
     text-transform: uppercase;
-    background-color: #124b87;
+    background-color: #125e87;
     min-height: 35px;
     width: 120px;
     border: none;
@@ -35,23 +35,25 @@ button {
 }
 
 button:hover {
-    background-color: #1c64b1;
+    background-color: #1d7bae;
     cursor: pointer;
 }
 
 a {
-    color: #1c64b1;
+    color: #125e87;
     font-weight: bold;
     text-decoration: none;
-}
-
-a:hover {
-    color: #297bd3;
 }
 
 a:visited {
     color: #124b87;
 }
+
+a:hover, a:visited:hover {
+    color: #1d7bae;
+}
+
+
 
 img {
     width: 100%;
@@ -62,7 +64,10 @@ img {
 
 div {
     display: flex;
+    flex-direction: column; /* default */
 }
+
+/* IDs */
 
 #main-entry {
     flex-direction: column;
@@ -77,6 +82,8 @@ div {
     flex-direction: row;
     margin-top: 40px;
 }
+
+/* CLASSES */
 
 .entry {
     flex-direction: column;
@@ -106,9 +113,9 @@ div {
 
 .right-col {
     flex-direction: column;
-    text-align: right;
+    /* text-align: right; */
     width: 180px;
-    padding-left: 20px;
+    padding-left: 10px;
     /* border-left: 1px solid #ccc; */
 }
 
@@ -129,6 +136,7 @@ div {
 }
 
 .small-info {
+    flex-direction: row;
     font-weight: lighter;
     font-size: 0.9rem;
     text-transform: uppercase;

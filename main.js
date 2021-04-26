@@ -13,7 +13,7 @@ const entries = [
         requirements: [],
         note: "",
         releaseDate: "2021-04-03",
-        difficulty: "n/a",
+        difficulty: "",
         image: "slack.png",
         isPending: false      
     },
@@ -98,7 +98,7 @@ const entries = [
 
     // PERSONAL PROJECTS
     {
-        id: 6,
+        id: 5,
         title: "Kaleidoscope",
         section: "Personal Projects",
         category: "The DOM",
@@ -128,14 +128,20 @@ function Link(props) {
 
 // All links in a list
 function LinkList(props) {
-    let subheader = "Links";
-    if (props.links.length === 1) {
-        subheader = "Link";
-    }
     return (
         <div className="link-list">
-            <h4>{subheader}</h4>
+            <h4>{(props.links.length === 1) ? "Link" : "Links"}</h4>
             {props.links.map((item) => <Link key={item.name} item={item} />)}
+        </div>
+    )
+}
+
+// Makes it easy to show or not show this depending on whether it applies
+function Difficulty(props) {
+    return (
+        <div>
+            <h4 className="info-subheader">Difficulty</h4>
+            <p className="info">{props.difficulty}</p>
         </div>
     )
 }
@@ -143,8 +149,6 @@ function LinkList(props) {
 let startIndex = 5;
 
 class Entry extends React.Component {
-
-    
 
     state = {
         title: entries[startIndex].title,
@@ -179,18 +183,19 @@ class Entry extends React.Component {
                 <button onClick={this.getRandomEntry}>Surprise Me</button>
                 <div id="entry-area">
                     <div className="entry">
+                        <div>
+                            <h3>{this.state.title}</h3> {/* add "NEW" for recent releases */}
+                            <p>{this.state.description}</p>
+                        </div>
                         <div className="columns">
                             <div className="left-col">
-                                <h3>{this.state.title}</h3>
-                                <p>{this.state.description}</p>
                                 <img src={"/images/" + this.state.image} />
                             </div>
                             <div className="right-col">
                                 <LinkList links={this.state.links}/>
                                 <h4 className="info-subheader">Release Date</h4>
                                 <p className="info">{this.state.releaseDate}</p>
-                                <h4 className="info-subheader">Difficulty</h4>
-                                <p className="info">{this.state.difficulty}</p>
+                                {(this.state.difficulty !== "") ? <Difficulty difficulty={this.state.difficulty} /> : null }
                             </div>
                             
                         </div>
