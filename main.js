@@ -117,6 +117,35 @@ const entries = [
     }
 ];
 
+// Pull strings from certain properties for select options in form fields
+let sectionOptions = [];
+let categoryOptions = [];
+let techOptions = [];
+let actionOptions = [];
+let difficultyOptions = [];
+for (let i=0; i < entries.length; i++) {
+    let entry = entries[i];
+    if (!sectionOptions.includes(entry.section)) {
+        sectionOptions.push(entry.section);
+    }
+    if (!categoryOptions.includes(entry.category)) {
+        categoryOptions.push(entry.category);
+    }
+    for (let j=0; j < entry.tech.length; j++) {
+        if (!techOptions.includes(entry.tech[j])) {
+            techOptions.push(entry.tech[j]);
+        }
+    }  
+    for (let k=0; k < entry.links.length; k++) {
+        if (!actionOptions.includes(entry.links[k].name)) {
+            actionOptions.push(entry.links[k].name);
+        }
+    } 
+    if (!difficultyOptions.includes(entry.difficulty) && entry.difficulty !== '') {
+        difficultyOptions.push(entry.difficulty);
+    }
+}
+
 
 /** NEW TAG **/
 // Will only show if entry was released less than 40 days ago
@@ -212,23 +241,239 @@ function Entry(props) {
 /**** MULTIPLE ENTRIES ****/
 class EntriesDisplayed extends React.Component {
 
-    state = {
-        currentEntries: entries
+    constructor(props) {
+        super(props);
     }
 
     render() {
         return (
             <div className="main-entry">
-                {this.state.currentEntries.map((entry) => <Entry key={entry.id} entry={entry} />)}
+                {this.props.currentEntries.map((entry) => <Entry key={entry.id} entry={entry} />)}
             </div>
         )
     }
-
 }
 
-ReactDOM.render(<EntriesDisplayed />, document.getElementById('results-area'));
 
 
 // TODO: Display a list of recently visited links, e.g. Document for How to Make the Most of Slack, or Starter Code for Next-Level Loops
+
+// TODO: Implement form to take keywords and offer dropdowns for section, category, tech, available action (from links)?, difficulty... also maybe view newest only, view coming soon, etc... maybe a reset button?
+
+// TODO: Rearrange to make taller than wide and use masonry layout
+
+// FIXME: Images aren't loading fast enough on GitHub deployment
+
+// FIXME: Make note disappear if empty
+
+// FIXME: keyword field is not working
+
+/** CURRENT RESULTS COUNT **/
+// Will not show if n/a
+function ResultsFound(props) {
+    if (props.length === entries.length) {
+        return (
+            <div>
+                <p>Displaying all records.</p>
+            </div>
+        )
+    } else if (props.length > 0) {
+        let plural = (props.length === 1 ? "" : "s");
+        return (
+            <div>
+                <p>{`${props.length} record${plural} found.`}</p>
+            </div>
+        )
+    }  else {
+        return (
+            <div>
+                <p>No records found. Please change your search criteria and submit again.</p>
+            </div>
+        )
+    }
+}
+
+
+/**** FORM ****/
+
+class FilterForm extends React.Component {
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+            currentEntries: entries,
+            keywordsValue: '',
+            sectionValue: '',
+            categoryValue: '',
+            techValue: '',
+            actionValue: '',
+            difficultyValue: ''
+        };
+}
+
+    handleInputChange = (event) => {
+        const name = event.target.name;
+        let value = event.target.value;
+        this.setState({[name]: value});
+    }
+
+    rebuildCurrentEntries() {
+        let filteredEntries = [];
+        for (let i=0; i < entries.length; i++) {
+            if ((entries[i].section === this.state.sectionValue || this.state.sectionValue === '')
+                && (entries[i].category === this.state.categoryValue || this.state.categoryValue === '')
+                && (entries[i].tech.includes(this.state.techValue) || this.state.techValue === '')
+                // && (entries[i].action === this.state.actionValue || this.state.actionValue === '')
+                && (entries[i].difficulty === this.state.difficultyValue || this.state.difficultyValue === '')
+                && (entries[i].title.includes(this.state.keywordsValue) || entries[i].description.includes(this.state.keywordsValue))) {
+                filteredEntries.push(entries[i]);  
+            }
+        }
+        return filteredEntries;
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        this.setState({
+            currentEntries: this.rebuildCurrentEntries()
+        });
+    }
+
+    clearForm = (event) => {
+        event.preventDefault();
+        this.setState({
+            currentEntries: entries,
+            keywordsValue: '',
+            sectionValue: '',
+            categoryValue: '',
+            techValue: '',
+            actionValue: '',
+            difficultyValue: ''
+        })
+    }
+
+    render() {
+        return (
+            <div>
+                <form id="filter-form" onSubmit={this.handleSubmit}>
+                    <div className="fields">                  
+                        {/* <TextInput label={"Search by Keyword: "}
+                                    name="keywordsValue"
+                                    value={this.state.keywordsValue}
+                                    onChange={this.handleInputChange} /> */}
+                        <SelectInput label={"Section: "}
+                                    name="sectionValue"
+                                    value={this.state.sectionValue} 
+                                    options={this.props.sectionOptions}
+                                    handleInputChange={this.handleInputChange} />
+                        <SelectInput label={"Category: "}
+                                    name="categoryValue"
+                                    value={this.state.categoryValue} 
+                                    options={this.props.categoryOptions}
+                                    handleInputChange={this.handleInputChange} />
+                        <SelectInput label={"Tech: "}
+                                    name="techValue"
+                                    value={this.state.techValue} 
+                                    options={this.props.techOptions}
+                                    handleInputChange={this.handleInputChange} />
+                        {/* <SelectInput label={"Action: "}
+                                    name="actionValue"
+                                    value={this.state.actionValue} 
+                                    options={this.props.actionOptions}
+                                    handleInputChange={this.handleInputChange} /> */}
+                        <SelectInput label={"Difficulty: "}
+                                    name="difficultyValue"
+                                    value={this.state.difficultyValue} 
+                                    options={this.props.difficultyOptions}
+                                    handleInputChange={this.handleInputChange} />
+                    </div>
+                    <button id="submit" type="submit">Submit</button>
+                    <button onClick={this.clearForm}>Reset</button>
+                </form>
+                <ResultsFound length={this.state.currentEntries.length} />
+                <EntriesDisplayed currentEntries={this.state.currentEntries} />
+            </div>       
+        );
+    }
+}
+
+FilterForm.defaultProps = {
+    sectionOptions: sectionOptions,
+    categoryOptions: categoryOptions,
+    techOptions: techOptions,
+    actionOptions: actionOptions,
+    difficultyOptions: difficultyOptions
+}
+
+/*** FIELDS & VALIDATION ***/
+
+// need a function to build dropdown lists from all entries and set defaultProps
+
+/** TEXT INPUT **/
+
+class TextInput extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    handleInputChange = (event) => {
+        this.props.handleInputChange(event);
+    }
+
+    render() {
+        return (
+            <div className="input-field">
+                <label className="label">
+                    {this.props.label}
+                </label>
+                <input className="input" type="text"
+                        name={this.props.name}
+                        value={this.props.value}
+                        onChange={this.handleInputChange} />
+            </div>
+        );
+    }
+}
+
+/** SELECT INPUT **/
+
+class SelectInput extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    handleInputChange = (event) => {
+        this.props.handleInputChange(event);
+    }
+
+    render() {
+        return (
+            <div className="input-field">
+                <label className="label">
+                    {this.props.label}
+                </label>
+                <select className="input"
+                        value={this.props.value}
+                        name={this.props.name}
+                        onChange={this.handleInputChange}>
+                    <option key="default" value=""></option>
+                    {
+                        this.props.options.map(
+                            (option) => <option key={option} value={option}>{option}</option>
+                        )
+                    }
+                </select>
+            </div>
+        );
+    }
+}
+
+// Give images time to load
+setTimeout( function() {
+    ReactDOM.render(<FilterForm />, document.getElementById('results-area'));
+} , 200)
+
 
 

@@ -33,6 +33,7 @@ button {
     border: none;
     border-radius: 6px;
     padding: 5px 12px;
+    margin-right: 20px;
 }
 
 button:hover {
@@ -54,8 +55,6 @@ a:hover, a:visited:hover {
     color: #1d7bae;
 }
 
-
-
 img {
     width: 100%;
     border: none;
@@ -69,6 +68,15 @@ div {
 }
 
 /* IDs */
+
+#filter-form {
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+#submit {
+    background-color: #67a009;
+}
 
 #main-entry {
     flex-direction: column;
@@ -85,6 +93,25 @@ div {
 }
 
 /* CLASSES */
+
+.fields {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.input-field {
+    display: block;
+    margin-right: 20px;
+}
+
+.label {
+    margin-bottom: 10px;
+}
+
+.input {
+    width: 100%;
+}
 
 .entry {
     flex-direction: column;
@@ -103,7 +130,7 @@ div {
 }
 
 .new {
-    color: rgb(119, 184, 15);
+    color: #67a009;
 }
 
 .columns {
