@@ -217,7 +217,7 @@ function Entry(props) {
                 </div>
                 <div className="columns">
                     <div className="left-col">
-                        <img src={"../images/" + props.entry.image} />
+                        <img src={"./images/" + props.entry.image} />
                         <p className="note">{props.entry.note}</p>
                     </div>
                     <div className="right-col">

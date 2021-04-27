@@ -106,11 +106,16 @@ div {
 }
 
 .label {
-    margin-bottom: 10px;
+    /* margin-bottom: 20px; */
 }
 
 .input {
     width: 100%;
+    min-height: 35px;
+    border: 1px #333 solid;
+    border-radius: 6px;
+    padding: 5px 12px;
+    margin: 5px 0px;
 }
 
 .entry {
