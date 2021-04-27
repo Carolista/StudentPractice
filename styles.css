@@ -5,6 +5,7 @@
 
 body {
     color: #333;
+    /* background-color: #eff7fa; */
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
@@ -15,7 +16,7 @@ main {
 }
 
 h3 {
-    color: #124b87;
+    color: #125e87;
     margin: 0px;
 }
 
@@ -26,7 +27,7 @@ h4 {
 button {
     color: white;
     text-transform: uppercase;
-    background-color: #124b87;
+    background-color: #125e87;
     min-height: 35px;
     width: 120px;
     border: none;
@@ -35,23 +36,25 @@ button {
 }
 
 button:hover {
-    background-color: #1c64b1;
+    background-color: #1d7bae;
     cursor: pointer;
 }
 
 a {
-    color: #1c64b1;
+    color: #125e87;
     font-weight: bold;
     text-decoration: none;
-}
-
-a:hover {
-    color: #297bd3;
 }
 
 a:visited {
     color: #124b87;
 }
+
+a:hover, a:visited:hover {
+    color: #1d7bae;
+}
+
+
 
 img {
     width: 100%;
@@ -62,7 +65,10 @@ img {
 
 div {
     display: flex;
+    flex-direction: column; /* default */
 }
+
+/* IDs */
 
 #main-entry {
     flex-direction: column;
@@ -78,10 +84,12 @@ div {
     margin-top: 40px;
 }
 
+/* CLASSES */
+
 .entry {
     flex-direction: column;
     background-color: white;
-    width: 100%;
+    width: 98%; /* accommodate drop shadow */
     padding: 20px;
     margin: 10px 0px;
     border: 1px solid #ccc;
@@ -92,6 +100,10 @@ div {
 
 .entry:hover {
     filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, .6));
+}
+
+.new {
+    color: rgb(119, 184, 15);
 }
 
 .columns {
@@ -106,10 +118,13 @@ div {
 
 .right-col {
     flex-direction: column;
-    text-align: right;
     width: 180px;
-    padding-left: 20px;
-    /* border-left: 1px solid #ccc; */
+    padding-left: 10px;
+}
+
+.note {
+    font-style: italic;
+    font-size: 0.9rem;
 }
 
 .link-list {
@@ -117,6 +132,14 @@ div {
 }
 
 .link {
+    margin: 5px 0px;
+}
+
+.tech-subheader {
+    margin: 20px 0px 5px;
+}
+
+.tech {
     margin: 5px 0px;
 }
 
@@ -129,7 +152,7 @@ div {
 }
 
 .small-info {
-    font-weight: lighter;
+    flex-direction: row;
     font-size: 0.9rem;
     text-transform: uppercase;
     margin: 15px 0px 0px;
