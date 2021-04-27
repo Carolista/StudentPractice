@@ -117,26 +117,54 @@ const entries = [
     }
 ];
 
-/** HANDLE LIST OF LINKS FOR EACH ENTRY */
 
-// One link
-function Link(props) {
+/** NEW TAG **/
+// Will only show if entry was released less than 40 days ago
+function New(props) {
     return (
-        <p className="link"><a href={props.item.link} target="_blank">{props.item.name}</a></p>
+        <span className="new"> NEW!</span>
     )
 }
 
+
+/** LIST OF LINKS FOR EACH ENTRY */
+// One link
+function Link(props) {
+    return (
+        <p className="link"><a href={props.links.link} target="_blank">{props.links.name}</a></p>
+    )
+}
 // All links in a list
 function LinkList(props) {
     return (
         <div className="link-list">
             <h4>{(props.links.length === 1) ? "Link" : "Links"}</h4>
-            {props.links.map((item) => <Link key={item.name} item={item} />)}
+            {props.links.map((obj) => <Link key={obj.name} links={obj} />)}
         </div>
     )
 }
 
-// Makes it easy to show or not show this depending on whether it applies
+
+/** LIST OF TECH FOR EACH ENTRY */
+// One tech
+function Tech(props) {
+    return (
+        <p className="tech">{props.techName}</p>
+    )
+}
+// All techs in a list
+function TechList(props) {
+    return (
+        <div className="link-list">
+            <h4 className="tech-subheader">Tech</h4>
+            {props.tech.map((str) => <Tech key={str} techName={str} />)}
+        </div>
+    )
+}
+
+
+/** DIFFICULTY RATING **/
+// Will not show if n/a
 function Difficulty(props) {
     return (
         <div>
@@ -146,94 +174,61 @@ function Difficulty(props) {
     )
 }
 
-let startIndex = 5;
 
-class Entry extends React.Component {
-
-    state = {
-        title: entries[startIndex].title,
-        description: entries[startIndex].description,
-        image: entries[startIndex].image,
-        links: entries[startIndex].links,
-        section: entries[startIndex].section,
-        category: entries[startIndex].category,
-        releaseDate: entries[startIndex].releaseDate,
-        difficulty: entries[startIndex].difficulty
-    }
-
-    getRandomEntry = () => {
-        let randomIndex = Math.floor(Math.random() * entries.length);
-        // console.log(randomIndex);
-        this.setState({
-            title: entries[randomIndex].title,
-            description: entries[randomIndex].description,
-            image: entries[randomIndex].image,
-            links: entries[randomIndex].links,
-            section: entries[randomIndex].section,
-            category: entries[randomIndex].category,
-            releaseDate: entries[randomIndex].releaseDate,
-            difficulty: entries[randomIndex].difficulty
-        });
-    }
+/*** ONE ENTRY CARD ***/
+function Entry(props) {
     
-    render() {
+        let diff = (new Date() - new Date(props.entry.releaseDate))/(1000*60*60*24) < 40;
+
         return (
-            <div id="main-entry">
-                {/* Button is temporary */}
-                <button onClick={this.getRandomEntry}>Surprise Me</button>
-                <div id="entry-area">
-                    <div className="entry">
-                        <div>
-                            <h3>{this.state.title}</h3> {/* add "NEW" for recent releases */}
-                            <p>{this.state.description}</p>
-                        </div>
-                        <div className="columns">
-                            <div className="left-col">
-                                <img src={"/images/" + this.state.image} />
-                            </div>
-                            <div className="right-col">
-                                <LinkList links={this.state.links}/>
-                                <h4 className="info-subheader">Release Date</h4>
-                                <p className="info">{this.state.releaseDate}</p>
-                                {(this.state.difficulty !== "") ? <Difficulty difficulty={this.state.difficulty} /> : null }
-                            </div>
-                            
-                        </div>
-                        <div className="small-info">
-                            <span>{this.state.section}</span> &nbsp;&#124;&nbsp; 
-                            <span>{this.state.category}</span>
-                        </div>
+            <div className="entry">
+                <div>
+                    <h3>{props.entry.title}{ diff ? <New /> : null }</h3>
+                    <p>{props.entry.description}</p>
+                </div>
+                <div className="columns">
+                    <div className="left-col">
+                        <img src={"../images/" + props.entry.image} />
+                        <p className="note">{props.entry.note}</p>
                     </div>
-                    
+                    <div className="right-col">
+                        <LinkList links={props.entry.links} />
+                        {(props.entry.tech.length > 0) ? <TechList tech={props.entry.tech} /> : null }
+                        <h4 className="info-subheader">Release Date</h4>
+                        <p className="info">{props.entry.releaseDate}</p>
+                        {(props.entry.difficulty !== "") ? <Difficulty difficulty={props.entry.difficulty} /> : null }
+                    </div>
                 </div>
                 
-            </div>      
+                <div className="small-info">
+                    <span>{props.entry.section}</span> &nbsp;&#124;&nbsp; 
+                    <span>{props.entry.category}</span>
+                </div>
+            </div>  
+        )
+}
+
+
+/**** MULTIPLE ENTRIES ****/
+class EntriesDisplayed extends React.Component {
+
+    state = {
+        currentEntries: entries
+    }
+
+    render() {
+        return (
+            <div className="main-entry">
+                {this.state.currentEntries.map((entry) => <Entry key={entry.id} entry={entry} />)}
+            </div>
         )
     }
 
 }
 
-ReactDOM.render(<Entry />, document.getElementById('results-area'));
+ReactDOM.render(<EntriesDisplayed />, document.getElementById('results-area'));
 
-// Below is no longer necessary because my data now has an id property for each entry
-// I will handle lists of entries later when I implement search & filter features   
 
-// // Gather all entries with index numbers into objects as children
-// function IndexedEntries(props) {
-//     let entryList = [];
-//     for (let i=0; i < entries.length; i++) {
-//         entryList.push(props.children(i, entries));
-//     }
-//     return <div>{entryList}</div>
-// }
-
-// // Create display of all entries with index as keys
-// function Entries(props) {
-//     return (
-//         <IndexedEntries>
-//             {(i, entries) => <div key={i}>{entries[i]}</div>}
-//         </IndexedEntries>
-//     )
-// }
+// TODO: Display a list of recently visited links, e.g. Document for How to Make the Most of Slack, or Starter Code for Next-Level Loops
 
 
