@@ -274,7 +274,7 @@ function ResultsFound(props) {
     if (props.length === entries.length) {
         return (
             <div>
-                <p>Displaying all records.</p>
+                <p>{`Displaying all ${props.length} records.`}</p>
             </div>
         )
     } else if (props.length > 0) {
