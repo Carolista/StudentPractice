@@ -5,6 +5,7 @@
 
 body {
     color: #333;
+    background-color: #efefef; /* backup */
     /* Background vector created by starline - www.freepik.com */
     background: url('/images/low-poly-large.png') no-repeat fixed top center;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif

@@ -1,150 +1,173 @@
-const entries = [
-    // RESOURCE DOCUMENTS
-    {
-        id: 0,
-        title: "Get the Most out of Slack",
-        section: "Make A Strong Start",
-        category: "Resources",
-        description: "Learn more (faster) and get support from your mentors and peers. Bonus: How to post formatted code!",
-        links: [
-            { linkType: "Document", name: "Read Google Doc", link: "https://docs.google.com/document/d/1vAPrAvyzg_5iBGQ1ESDwRzJ5oNJezOg7F_bEYGBOkAM/edit?usp=sharing" }
-        ],
-        tech: [],
-        requirements: [],
-        note: "",
-        releaseDate: "2021-04-03",
-        difficulty: "",
-        image: "slack.png",
-        isPending: false      
-    },
+// import { entries } from './data/entries.js';
 
-    // EXAMPLES & EXERCISES - REPLIT BASED
-    {
-        id: 1,
-        title: "Can I Get Some Input?",
-        section: "Examples & Exercises by Topic",
-        category: "Data & Variables",
-        description: "Import readline-sync & get user input.",
-        links: [
-            { linkType: "Starter Code", name: "Start Coding", link: "https://repl.it/@CarolineRose/GettingInput-StarterCode" },
-            { linkType: "Solution", name: "Check Solution", link: "https://repl.it/@CarolineRose/GettingInput" }
-        ],
-        tech: ["JavaScript"],
-        requirements: ["Replit Account"],
-        note: "",
-        releaseDate: "2021-03-11",
-        difficulty: "Easy",
-        image: "data-variables-input.png",
-        isPending: false      
-    },
-    {   
-        id: 2,
-        title: "Template Literals",
-        section: "Examples & Exercises by Topic",
-        category: "Strings & Arrays",
-        description: "The most natural way to integrate strings and variables, using back ticks and a special placeholder syntax.",
-        links: [
-            { linkType: "Examples", name: "View Examples", link: "https://repl.it/@CarolineRose/Literally" }
-        ],
-        tech: ["JavaScript"],
-        note: "",
-        releaseDate: "2020-10-09",
-        difficulty: "Easy",
-        image: "strings-arrays-template-literals.png",
-        isPending: false      
-    },
+// const entries = [
+//     // RESOURCE DOCUMENTS
+//     {
+//         id: 0,
+//         title: "Get the Most out of Slack",
+//         section: "Make A Strong Start",
+//         category: "Resources",
+//         description: "Learn more (faster) and get support from your mentors and peers. Bonus: How to post formatted code!",
+//         links: [
+//             { linkType: "Document", name: "Read Google Doc", link: "https://docs.google.com/document/d/1vAPrAvyzg_5iBGQ1ESDwRzJ5oNJezOg7F_bEYGBOkAM/edit?usp=sharing" }
+//         ],
+//         tech: [],
+//         requirements: [],
+//         note: "",
+//         releaseDate: "2021-04-03",
+//         difficulty: "",
+//         image: "slack.png",
+//         isPending: false      
+//     },
 
-    // EXAMPLES & EXERCISES - GITHUB BASED
-    {
-        id: 3,
-        title: "Form Basics: Weekly Planner",
-        section: "Examples & Exercises by Topic",
-        category: "The DOM",
-        description: "Form validation and adding HTML to a page in the DOM",
-        links: [
-            { linkType: "Demo", name: "Try Demo", link: "https://carolista.github.io/LC-Form-Basics/" },
-            { linkType: "Repository", name: "Fork from GitHub", link: "https://github.com/Carolista/LC-Form-Basics" }
+//     // EXAMPLES & EXERCISES - REPLIT BASED
+//     {
+//         id: 1,
+//         title: "Can I Get Some Input?",
+//         section: "Examples & Exercises by Topic",
+//         category: "Data & Variables",
+//         description: "Import readline-sync & get user input.",
+//         links: [
+//             { linkType: "Starter Code", name: "Start Coding", link: "https://repl.it/@CarolineRose/GettingInput-StarterCode" },
+//             { linkType: "Solution", name: "Check Solution", link: "https://repl.it/@CarolineRose/GettingInput" }
+//         ],
+//         tech: ["JavaScript"],
+//         requirements: ["Replit Account"],
+//         note: "",
+//         releaseDate: "2021-03-11",
+//         difficulty: "Easy",
+//         image: "data-variables-input.png",
+//         isPending: false      
+//     },
+//     {   
+//         id: 2,
+//         title: "Template Literals",
+//         section: "Examples & Exercises by Topic",
+//         category: "Strings & Arrays",
+//         description: "The most natural way to integrate strings and variables, using back ticks and a special placeholder syntax.",
+//         links: [
+//             { linkType: "Examples", name: "View Examples", link: "https://repl.it/@CarolineRose/Literally" }
+//         ],
+//         tech: ["JavaScript"],
+//         note: "",
+//         releaseDate: "2020-10-09",
+//         difficulty: "Easy",
+//         image: "strings-arrays-template-literals.png",
+//         isPending: false      
+//     },
+
+//     // EXAMPLES & EXERCISES - GITHUB BASED
+//     {
+//         id: 3,
+//         title: "Form Basics: Weekly Planner",
+//         section: "Examples & Exercises by Topic",
+//         category: "The DOM",
+//         description: "Form validation and adding HTML to a page in the DOM",
+//         links: [
+//             { linkType: "Demo", name: "Try Demo", link: "https://carolista.github.io/LC-Form-Basics/" },
+//             { linkType: "Repository", name: "Fork from GitHub", link: "https://github.com/Carolista/LC-Form-Basics" }
             
-        ],
-        tech: ["HTML", "CSS", "JavaScript"],
-        note: "This one does not have starter code, but you are encouraged to FORK your own copy and then clone it down to your local machine for exploration and experimentation!",
-        releaseDate: "2020-10-24",
-        difficulty: "Moderate",
-        image: "this-week.png",
-        isPending: false      
-    },
+//         ],
+//         tech: ["HTML", "CSS", "JavaScript"],
+//         note: "This one does not have starter code, but you are encouraged to FORK your own copy and then clone it down to your local machine for exploration and experimentation!",
+//         releaseDate: "2020-10-24",
+//         difficulty: "Moderate",
+//         image: "this-week.png",
+//         isPending: false      
+//     },
 
-    // GA PREP
-    {
-        id: 4,
-        title: "Physician Directory",
-        section: "Graded Assignment Prep",
-        category: "Assignment 2: Scrabble Scorer",
-        description: "Learn how to put together a program with multiple functions for the console and prepare for Graded Assignment 2: Scrabble Scorer",
-        links: [
-            { linkType: "Demo", name: "Try Demo", link: "https://replit.com/@CarolineRose/PhysicianDirectory?v=1" },
-            { linkType: "Document", name: "Read Google Doc", link: "https://tinyurl.com/xt5ux8h6" },
-            { linkType: "Starter Code", name: "Start Coding", link: "https://replit.com/@CarolineRose/PhysicianDirectory-StarterCode#index.js" },
-            { linkType: "Solution", name: "Check Solution", link: "https://replit.com/@CarolineRose/PhysicianDirectory#index.js" },
-            { linkType: "Video", name: "Watch Video", link: "https://youtu.be/tbLMj7h9Ghk" }
-        ],
-        tech: ["JavaScript"],
-        note: "",
-        releaseDate: "2020-04-10",
-        difficulty: "Moderate",
-        image: "physician-directory.png",
-        isPending: false      
-    },
+//     // GA PREP
+//     {
+//         id: 4,
+//         title: "Physician Directory",
+//         section: "Graded Assignment Prep",
+//         category: "Assignment 2: Scrabble Scorer",
+//         description: "Learn how to put together a program with multiple functions for the console and prepare for Graded Assignment 2: Scrabble Scorer",
+//         links: [
+//             { linkType: "Demo", name: "Try Demo", link: "https://replit.com/@CarolineRose/PhysicianDirectory?v=1" },
+//             { linkType: "Document", name: "Read Google Doc", link: "https://tinyurl.com/xt5ux8h6" },
+//             { linkType: "Starter Code", name: "Start Coding", link: "https://replit.com/@CarolineRose/PhysicianDirectory-StarterCode#index.js" },
+//             { linkType: "Solution", name: "Check Solution", link: "https://replit.com/@CarolineRose/PhysicianDirectory#index.js" },
+//             { linkType: "Video", name: "Watch Video", link: "https://youtu.be/tbLMj7h9Ghk" }
+//         ],
+//         tech: ["JavaScript"],
+//         note: "",
+//         releaseDate: "2020-04-10",
+//         difficulty: "Moderate",
+//         image: "physician-directory.png",
+//         isPending: false      
+//     },
 
-    // PERSONAL PROJECTS
-    {
-        id: 5,
-        title: "Kaleidoscope",
-        section: "Personal Projects",
-        category: "The DOM",
-        description: "Relax and create colorful, mirrored designs",
-        links: [
-            { linkType: "Demo", name: "Try Demo", link: "https://carolista.github.io/LC-DOM-Kaleidoscope/" },
-            { linkType: "Repository", name: "Fork from GitHub", link: "https://github.com/Carolista/LC-DOM-Kaleidoscope" }
+//     // PERSONAL PROJECTS
+//     {
+//         id: 5,
+//         title: "Kaleidoscope",
+//         section: "Personal Projects",
+//         category: "The DOM",
+//         description: "Relax and create colorful, mirrored designs",
+//         links: [
+//             { linkType: "Demo", name: "Try Demo", link: "https://carolista.github.io/LC-DOM-Kaleidoscope/" },
+//             { linkType: "Repository", name: "Fork from GitHub", link: "https://github.com/Carolista/LC-DOM-Kaleidoscope" }
             
-        ],
-        tech: ["HTML", "CSS", "JavaScript"],
-        note: "Feel free to FORK your own copy and then clone it down to your local machine for exploration and experimentation!",
-        releaseDate: "2020-10-18",
-        difficulty: "Challenging",
-        image: "kaleidoscope.png",
-        isPending: false      
-    }
-];
+//         ],
+//         tech: ["HTML", "CSS", "JavaScript"],
+//         note: "Feel free to FORK your own copy and then clone it down to your local machine for exploration and experimentation!",
+//         releaseDate: "2020-10-18",
+//         difficulty: "Challenging",
+//         image: "kaleidoscope.png",
+//         isPending: false      
+//     }
+// ];
 
-// Pull strings from certain properties for select options in form fields
+// Get data for all entries
+let entries = [];
 let sectionOptions = [];
 let categoryOptions = [];
 let techOptions = [];
-let actionOptions = [];
 let difficultyOptions = [];
-for (let i=0; i < entries.length; i++) {
-    let entry = entries[i];
-    if (!sectionOptions.includes(entry.section)) {
-        sectionOptions.push(entry.section);
-    }
-    if (!categoryOptions.includes(entry.category)) {
-        categoryOptions.push(entry.category);
-    }
-    for (let j=0; j < entry.tech.length; j++) {
-        if (!techOptions.includes(entry.tech[j])) {
-            techOptions.push(entry.tech[j]);
-        }
-    }  
-    for (let k=0; k < entry.links.length; k++) {
-        if (!actionOptions.includes(entry.links[k].name)) {
-            actionOptions.push(entry.links[k].name);
-        }
-    } 
-    if (!difficultyOptions.includes(entry.difficulty) && entry.difficulty !== '') {
-        difficultyOptions.push(entry.difficulty);
-    }
+
+function getEntryData() {
+    let newEntry;
+    fetch('./data/entries.json')
+        .then(response => response.json())
+        .then(data => {
+            
+            data.forEach(obj => {
+                newEntry = {
+                    id: obj.id,
+                    title: obj.title,
+                    section: obj.section,
+                    category: obj.category,
+                    description: obj.description,
+                    links: obj.links.map((link) => ({linkType: link.linkType, name: link.name, link: link.link})),
+                    tech: obj.tech,
+                    requirements: obj.requirements,
+                    note: obj.note,
+                    releaseDate: obj.releaseDate,
+                    difficulty: obj.difficulty,
+                    image: obj.image,
+                    isPending: obj.isPending
+                };
+                entries.push(newEntry);
+                if (!sectionOptions.includes(obj.section)) {
+                    sectionOptions.push(obj.section);
+                }
+                if (!categoryOptions.includes(obj.category)) {
+                    categoryOptions.push(obj.category);
+                }
+                for (let j=0; j < obj.tech.length; j++) {
+                    if (!techOptions.includes(obj.tech[j])) {
+                        techOptions.push(obj.tech[j]);
+                    }
+                }  
+                if (!difficultyOptions.includes(obj.difficulty) && obj.difficulty !== '') {
+                    difficultyOptions.push(obj.difficulty);
+                }
+            });
+        });
 }
+getEntryData();
+
 
 
 /** NEW TAG **/
@@ -254,11 +277,13 @@ class EntriesDisplayed extends React.Component {
     }
 }
 
+// TODO: sort entries before displaying and perhaps organize under section headers
 
+// TODO: maybe implement alternate modes for viewing in rows with less info and with smaller cards
 
-// TODO: Display a list of recently visited links, e.g. Document for How to Make the Most of Slack, or Starter Code for Next-Level Loops
+// TODO: Display a list of recently visited links, e.g. Document for How to Make the Most of Slack, or Starter Code for Next-Level Loops - maybe
 
-// TODO: Implement form to take keywords and offer dropdowns for section, category, tech, available action (from links)?, difficulty... also maybe view newest only, view coming soon, etc... maybe a reset button?
+// TODO: Implement form to take keywords and offer dropdowns for section, category, tech, difficulty... also maybe view newest only, view coming soon, etc... 
 
 // TODO: Rearrange to make taller than wide and use masonry layout
 
@@ -268,8 +293,8 @@ class EntriesDisplayed extends React.Component {
 
 // FIXME: keyword field is not working
 
+
 /** CURRENT RESULTS COUNT **/
-// Will not show if n/a
 function ResultsFound(props) {
     if (props.length === entries.length) {
         return (
@@ -306,7 +331,6 @@ class FilterForm extends React.Component {
             sectionValue: '',
             categoryValue: '',
             techValue: '',
-            actionValue: '',
             difficultyValue: ''
         };
 }
@@ -323,7 +347,6 @@ class FilterForm extends React.Component {
             if ((entries[i].section === this.state.sectionValue || this.state.sectionValue === '')
                 && (entries[i].category === this.state.categoryValue || this.state.categoryValue === '')
                 && (entries[i].tech.includes(this.state.techValue) || this.state.techValue === '')
-                // && (entries[i].action === this.state.actionValue || this.state.actionValue === '')
                 && (entries[i].difficulty === this.state.difficultyValue || this.state.difficultyValue === '')
                 && (entries[i].title.includes(this.state.keywordsValue) || entries[i].description.includes(this.state.keywordsValue))) {
                 filteredEntries.push(entries[i]);  
@@ -347,7 +370,6 @@ class FilterForm extends React.Component {
             sectionValue: '',
             categoryValue: '',
             techValue: '',
-            actionValue: '',
             difficultyValue: ''
         })
     }
@@ -376,11 +398,6 @@ class FilterForm extends React.Component {
                                     value={this.state.techValue} 
                                     options={this.props.techOptions}
                                     handleInputChange={this.handleInputChange} />
-                        {/* <SelectInput label={"Action: "}
-                                    name="actionValue"
-                                    value={this.state.actionValue} 
-                                    options={this.props.actionOptions}
-                                    handleInputChange={this.handleInputChange} /> */}
                         <SelectInput label={"Difficulty: "}
                                     name="difficultyValue"
                                     value={this.state.difficultyValue} 
@@ -401,7 +418,6 @@ FilterForm.defaultProps = {
     sectionOptions: sectionOptions,
     categoryOptions: categoryOptions,
     techOptions: techOptions,
-    actionOptions: actionOptions,
     difficultyOptions: difficultyOptions
 }
 
