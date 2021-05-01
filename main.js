@@ -4,8 +4,6 @@
 
 // TODO: perhaps organize results under section headers and categories like they are on Google docs - only present if relevant
 
-// TODO: maybe implement alternate modes for viewing in rows with less info and with smaller cards - or better yet, a toggle to have the card initially displayed collapsed but then slide open to full size
-
 // TODO: Display a list of recently visited links, e.g. Document for How to Make the Most of Slack, or Starter Code for Next-Level Loops - maybe?
 
 // TODO: Consider multi-select for category and tech
@@ -183,7 +181,7 @@ class Entry extends React.Component {
                     {this.state.collapsed ? <DownArrow /> : <UpArrow />}
                 </div>
                 <div>
-                    <h3>{entry.title}{ diff ? <New /> : null }</h3>
+                    <h3 className="title" onClick={this.toggleCollapse}>{entry.title}{ diff ? <New /> : null }</h3>
                     <p>{entry.description}</p>
                 </div>
                 <div style={viewMode}>

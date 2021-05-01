@@ -96,6 +96,10 @@ div {
 
 /* CLASSES */
 
+.title {
+    cursor: pointer;
+}
+
 .fields {
     display: flex;
     flex-direction: row;
