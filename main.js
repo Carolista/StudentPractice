@@ -1,123 +1,26 @@
-// import { entries } from './data/entries.js';
+/**************************************/
+/**** STUDENT PRACTICE & RESOURCES ****/
+/**************************************/
 
-// const entries = [
-//     // RESOURCE DOCUMENTS
-//     {
-//         id: 0,
-//         title: "Get the Most out of Slack",
-//         section: "Make A Strong Start",
-//         category: "Resources",
-//         description: "Learn more (faster) and get support from your mentors and peers. Bonus: How to post formatted code!",
-//         links: [
-//             { linkType: "Document", name: "Read Google Doc", link: "https://docs.google.com/document/d/1vAPrAvyzg_5iBGQ1ESDwRzJ5oNJezOg7F_bEYGBOkAM/edit?usp=sharing" }
-//         ],
-//         tech: [],
-//         requirements: [],
-//         note: "",
-//         releaseDate: "2021-04-03",
-//         difficulty: "",
-//         image: "slack.png",
-//         isPending: false      
-//     },
+// TODO: perhaps organize results under section headers and categories like they are on Google docs - only present if relevant
 
-//     // EXAMPLES & EXERCISES - REPLIT BASED
-//     {
-//         id: 1,
-//         title: "Can I Get Some Input?",
-//         section: "Examples & Exercises by Topic",
-//         category: "Data & Variables",
-//         description: "Import readline-sync & get user input.",
-//         links: [
-//             { linkType: "Starter Code", name: "Start Coding", link: "https://repl.it/@CarolineRose/GettingInput-StarterCode" },
-//             { linkType: "Solution", name: "Check Solution", link: "https://repl.it/@CarolineRose/GettingInput" }
-//         ],
-//         tech: ["JavaScript"],
-//         requirements: ["Replit Account"],
-//         note: "",
-//         releaseDate: "2021-03-11",
-//         difficulty: "Easy",
-//         image: "data-variables-input.png",
-//         isPending: false      
-//     },
-//     {   
-//         id: 2,
-//         title: "Template Literals",
-//         section: "Examples & Exercises by Topic",
-//         category: "Strings & Arrays",
-//         description: "The most natural way to integrate strings and variables, using back ticks and a special placeholder syntax.",
-//         links: [
-//             { linkType: "Examples", name: "View Examples", link: "https://repl.it/@CarolineRose/Literally" }
-//         ],
-//         tech: ["JavaScript"],
-//         note: "",
-//         releaseDate: "2020-10-09",
-//         difficulty: "Easy",
-//         image: "strings-arrays-template-literals.png",
-//         isPending: false      
-//     },
+// TODO: maybe implement alternate modes for viewing in rows with less info and with smaller cards - or better yet, a toggle to have the card initially displayed collapsed but then slide open to full size
 
-//     // EXAMPLES & EXERCISES - GITHUB BASED
-//     {
-//         id: 3,
-//         title: "Form Basics: Weekly Planner",
-//         section: "Examples & Exercises by Topic",
-//         category: "The DOM",
-//         description: "Form validation and adding HTML to a page in the DOM",
-//         links: [
-//             { linkType: "Demo", name: "Try Demo", link: "https://carolista.github.io/LC-Form-Basics/" },
-//             { linkType: "Repository", name: "Fork from GitHub", link: "https://github.com/Carolista/LC-Form-Basics" }
-            
-//         ],
-//         tech: ["HTML", "CSS", "JavaScript"],
-//         note: "This one does not have starter code, but you are encouraged to FORK your own copy and then clone it down to your local machine for exploration and experimentation!",
-//         releaseDate: "2020-10-24",
-//         difficulty: "Moderate",
-//         image: "this-week.png",
-//         isPending: false      
-//     },
+// TODO: Display a list of recently visited links, e.g. Document for How to Make the Most of Slack, or Starter Code for Next-Level Loops - maybe?
 
-//     // GA PREP
-//     {
-//         id: 4,
-//         title: "Physician Directory",
-//         section: "Graded Assignment Prep",
-//         category: "Assignment 2: Scrabble Scorer",
-//         description: "Learn how to put together a program with multiple functions for the console and prepare for Graded Assignment 2: Scrabble Scorer",
-//         links: [
-//             { linkType: "Demo", name: "Try Demo", link: "https://replit.com/@CarolineRose/PhysicianDirectory?v=1" },
-//             { linkType: "Document", name: "Read Google Doc", link: "https://tinyurl.com/xt5ux8h6" },
-//             { linkType: "Starter Code", name: "Start Coding", link: "https://replit.com/@CarolineRose/PhysicianDirectory-StarterCode#index.js" },
-//             { linkType: "Solution", name: "Check Solution", link: "https://replit.com/@CarolineRose/PhysicianDirectory#index.js" },
-//             { linkType: "Video", name: "Watch Video", link: "https://youtu.be/tbLMj7h9Ghk" }
-//         ],
-//         tech: ["JavaScript"],
-//         note: "",
-//         releaseDate: "2020-04-10",
-//         difficulty: "Moderate",
-//         image: "physician-directory.png",
-//         isPending: false      
-//     },
+// TODO: Consider multi-select for category and tech
 
-//     // PERSONAL PROJECTS
-//     {
-//         id: 5,
-//         title: "Kaleidoscope",
-//         section: "Personal Projects",
-//         category: "The DOM",
-//         description: "Relax and create colorful, mirrored designs",
-//         links: [
-//             { linkType: "Demo", name: "Try Demo", link: "https://carolista.github.io/LC-DOM-Kaleidoscope/" },
-//             { linkType: "Repository", name: "Fork from GitHub", link: "https://github.com/Carolista/LC-DOM-Kaleidoscope" }
-            
-//         ],
-//         tech: ["HTML", "CSS", "JavaScript"],
-//         note: "Feel free to FORK your own copy and then clone it down to your local machine for exploration and experimentation!",
-//         releaseDate: "2020-10-18",
-//         difficulty: "Challenging",
-//         image: "kaleidoscope.png",
-//         isPending: false      
-//     }
-// ];
+// TODO: Perhaps have results update onChange instead of using a submit button (but keep clear/reset button) - how would that work with multi-select?
+
+// TODO: Reduce sizes of everything; Rearrange card to allow for responsive display
+
+// TODO: Modernize style & implement google fonts and icons
+
+// FIXME: Images aren't loading fast enough on GitHub deployment - resize even smaller
+
+// FIXME: Make note disappear if empty
+
+// FIXME: keyword field for form search is not working - also needs to handle spaces and partial matches
 
 // Get data for all entries
 let entries = [];
@@ -166,8 +69,9 @@ function getEntryData() {
             });
         });
 }
-getEntryData();
 
+// TODO: Get this in a lifecycle hook
+getEntryData();
 
 
 /** NEW TAG **/
@@ -226,38 +130,84 @@ function Difficulty(props) {
     )
 }
 
+/** UP ARROW **/
+function UpArrow() {
+    return (
+        <div>
+            <div className="up"></div>
+        </div>
+        
+    )
+}
 
-/*** ONE ENTRY CARD ***/
-function Entry(props) {
-    
-        let diff = (new Date() - new Date(props.entry.releaseDate))/(1000*60*60*24) < 40;
+/** DOWN ARROW **/
+function DownArrow() {
+    return (
+        <div className="down"></div>
+    )
+}
+
+/*** ONE ENTRY DETAILED CARD ***/
+class Entry extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            collapsed: true
+        }
+    }
+
+    toggleCollapse = () => {
+        this.setState({
+            collapsed: !this.state.collapsed
+        })
+    }
+
+    render() {
+
+        // Simplify
+        let entry = this.props.entry;
+
+        let diff = (new Date() - new Date(entry.releaseDate))/(1000*60*60*24) < 40;
+
+        let viewMode = {};
+
+        if (this.state.collapsed) {
+            viewMode.display = "none";
+        } 
 
         return (
+
             <div className="entry">
+                <div className="arrow-container" onClick={this.toggleCollapse}>
+                    {this.state.collapsed ? <DownArrow /> : <UpArrow />}
+                </div>
                 <div>
-                    <h3>{props.entry.title}{ diff ? <New /> : null }</h3>
-                    <p>{props.entry.description}</p>
+                    <h3>{entry.title}{ diff ? <New /> : null }</h3>
+                    <p>{entry.description}</p>
                 </div>
-                <div className="columns">
-                    <div className="left-col">
-                        <img src={"./images/" + props.entry.image} />
-                        <p className="note">{props.entry.note}</p>
+                <div style={viewMode}>
+                    <div className="columns">
+                        <div className="left-col">
+                            <img src={"./images/" + entry.image} />
+                            <p className="note">{entry.note}</p>
+                        </div>
+                        <div className="right-col">
+                            <LinkList links={entry.links} />
+                            {(entry.tech.length > 0) ? <TechList tech={entry.tech} /> : null }
+                            <h4 className="info-subheader">Release Date</h4>
+                            <p className="info">{entry.releaseDate}</p>
+                            {(entry.difficulty !== "") ? <Difficulty difficulty={entry.difficulty} /> : null }
+                        </div>
                     </div>
-                    <div className="right-col">
-                        <LinkList links={props.entry.links} />
-                        {(props.entry.tech.length > 0) ? <TechList tech={props.entry.tech} /> : null }
-                        <h4 className="info-subheader">Release Date</h4>
-                        <p className="info">{props.entry.releaseDate}</p>
-                        {(props.entry.difficulty !== "") ? <Difficulty difficulty={props.entry.difficulty} /> : null }
+                    <div className="small-info">
+                        <span>{entry.section}</span> &nbsp;&#124;&nbsp; 
+                        <span>{entry.category}</span>
                     </div>
-                </div>
-                
-                <div className="small-info">
-                    <span>{props.entry.section}</span> &nbsp;&#124;&nbsp; 
-                    <span>{props.entry.category}</span>
-                </div>
+                </div>            
             </div>  
         )
+    }
 }
 
 
@@ -276,22 +226,6 @@ class EntriesDisplayed extends React.Component {
         )
     }
 }
-
-// TODO: sort entries before displaying and perhaps organize under section headers
-
-// TODO: maybe implement alternate modes for viewing in rows with less info and with smaller cards
-
-// TODO: Display a list of recently visited links, e.g. Document for How to Make the Most of Slack, or Starter Code for Next-Level Loops - maybe
-
-// TODO: Implement form to take keywords and offer dropdowns for section, category, tech, difficulty... also maybe view newest only, view coming soon, etc... 
-
-// TODO: Rearrange to make taller than wide and use masonry layout
-
-// FIXME: Images aren't loading fast enough on GitHub deployment
-
-// FIXME: Make note disappear if empty
-
-// FIXME: keyword field is not working
 
 
 /** CURRENT RESULTS COUNT **/
@@ -320,7 +254,6 @@ function ResultsFound(props) {
 
 
 /**** FORM ****/
-
 class FilterForm extends React.Component {
     
     constructor(props) {
@@ -342,16 +275,13 @@ class FilterForm extends React.Component {
     }
 
     rebuildCurrentEntries() {
-        let filteredEntries = [];
-        for (let i=0; i < entries.length; i++) {
-            if ((entries[i].section === this.state.sectionValue || this.state.sectionValue === '')
-                && (entries[i].category === this.state.categoryValue || this.state.categoryValue === '')
-                && (entries[i].tech.includes(this.state.techValue) || this.state.techValue === '')
-                && (entries[i].difficulty === this.state.difficultyValue || this.state.difficultyValue === '')
-                && (entries[i].title.includes(this.state.keywordsValue) || entries[i].description.includes(this.state.keywordsValue))) {
-                filteredEntries.push(entries[i]);  
-            }
-        }
+        let current = this.state;
+        let filteredEntries = entries.filter(entry => (
+            (entry.section === current.sectionValue || current.sectionValue === '')
+            && (entry.category === current.categoryValue || current.categoryValue === '')
+            && (entry.tech.includes(current.techValue) || current.techValue === '')
+            && (entry.difficulty === current.difficultyValue || current.difficultyValue === ''))
+        );       
         return filteredEntries;
     }
 
@@ -421,12 +351,8 @@ FilterForm.defaultProps = {
     difficultyOptions: difficultyOptions
 }
 
-/*** FIELDS & VALIDATION ***/
-
-// need a function to build dropdown lists from all entries and set defaultProps
 
 /** TEXT INPUT **/
-
 class TextInput extends React.Component {
 
     constructor(props) {
@@ -453,7 +379,6 @@ class TextInput extends React.Component {
 }
 
 /** SELECT INPUT **/
-
 class SelectInput extends React.Component {
 
     constructor(props) {
@@ -486,10 +411,10 @@ class SelectInput extends React.Component {
     }
 }
 
-// Give images time to load
+// Give data and images time to load, then render
 setTimeout( function() {
     ReactDOM.render(<FilterForm />, document.getElementById('results-area'));
-} , 200)
+} , 100)
 
 
 
