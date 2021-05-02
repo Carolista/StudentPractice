@@ -65,10 +65,29 @@
         ],
         "tech": ["HTML", "CSS", "JavaScript"],
         "requirements": ["GitHub Account", "Local IDE", "Git"],
-        "note": "This one does not have starter code, but you are encouraged to FORK your own copy and then clone it down to your local machine for exploration and experimentation!",
+        "note": "FORK your own copy and then clone it down to your local machine for exploration and experimentation!",
         "releaseDate": "2020-10-24",
         "difficulty": "Moderate",
         "image": "this-week.png",
+        "isPending": false      
+    },
+
+    {
+        "id": 6,
+        "title": "Fetching JSON: Quotes, Advice, & Dad Jokes",
+        "section": "Examples & Exercises by Topic",
+        "category": "Fetch & JSON",
+        "description": "Examples of connecting to public APIs with different requirements",
+        "links": [
+            { "linkType": "Repository", "name": "GitHub", "link": "https://github.com/Carolista/LC-Fetch-JSON-Basics" },
+            { "linkType": "Demo", "name": "Try Demo", "link": "https://carolista.github.io/LC-Fetch-JSON-Basics/" }
+        ],
+        "tech": ["HTML", "CSS", "JavaScript"],
+        "requirements": ["GitHub Account", "local IDE", "Git"],
+        "note": "FORK your own copy and then clone it down to your local machine for exploration and experimentation!",
+        "releaseDate": "2020-10-25",
+        "difficulty": "Challenging",
+        "image": "fetching-json.png",
         "isPending": false      
     },
 
@@ -106,7 +125,7 @@
         ],
         "tech": ["HTML", "CSS", "JavaScript"],
         "requirements": ["GitHub Account", "local IDE", "Git"],
-        "note": "Feel free to FORK your own copy and then clone it down to your local machine for exploration and experimentation!",
+        "note": "FORK your own copy and then clone it down to your local machine for exploration and experimentation!",
         "releaseDate": "2020-10-18",
         "difficulty": "Challenging",
         "image": "kaleidoscope.png",
