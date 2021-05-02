@@ -151,7 +151,7 @@ class Entry extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            collapsed: false
+            collapsed: true /* default for each entry in results */
         }
     }
 
@@ -332,8 +332,11 @@ class FilterForm extends React.Component {
                                     options={this.props.difficultyOptions}
                                     handleInputChange={this.handleInputChange} />
                     </div>
-                    <button id="submit" type="submit">Submit</button>
-                    <button onClick={this.clearForm}>Reset</button>
+                    <div id="buttons">
+                        <button onClick={this.clearForm}>Reset</button>
+                        <button id="submit" type="submit">Submit</button>   
+                    </div>
+                    
                 </form>
                 <ResultsFound length={this.state.currentEntries.length} />
                 <EntriesDisplayed currentEntries={this.state.currentEntries} />

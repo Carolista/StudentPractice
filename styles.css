@@ -75,7 +75,12 @@ div {
 
 #filter-form {
     flex-direction: column;
-    margin-bottom: 20px;
+}
+
+#buttons {
+    display: inline;
+    float: right;
+    margin-top: 10px;
 }
 
 #submit {
